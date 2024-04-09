@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning Bot - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        .resources {
+            margin-top: 20px;
+        }
+        .resources h3 {
+            margin-bottom: 10px;
+        }
+        .resource-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .resource-list li {
+            margin-bottom: 5px;
+        }
+        .download-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Language Learning Bot - Result</h2>
+        <p>Hello, <strong>{{ name }}</strong>!</p>
+        <p>Your language proficiency level: <strong>{{ language_level }}</strong></p>
+        <div class="resources">
+            <h3>Recommended Resources:</h3>
+            <ul class="resource-list">
+                {% for resource_type, resource_list in resources.items() %}
+                    <li><strong>{{ resource_type.capitalize() }}:</strong></li>
+                    {% for resource in resource_list %}
+                        <li>{{ resource }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% if language_level == "Basic" %}
+            <a href="C:\Users\kspar\Languagelearningbot\Beginner.pdf" class="download-link">Download Basic Resources PDF</a>
+        {% elif language_level == "Intermediate" %}
+            <a href="Intermediate.pdf" class="download-link">Download Intermediate Resources PDF</a>
+        {% elif language_level == "Advanced" %}
+            <a href="Advanced.pdf" class="download-link">Download Advanced Resources PDF</a>
+        {% endif %}
+    </div>
+</body>
+</html>
